@@ -1,10 +1,14 @@
-import "./app.css";
 import { EvilForm } from "./form/form.tsx";
+
+import "./app.css";
 
 const App = () => {
   return (
     <div className="app">
-      <EvilForm />
+      <div className="app__inner">
+        <h1 className="app__inner-title">Login</h1>
+        <EvilForm />
+      </div>
     </div>
   );
 };
