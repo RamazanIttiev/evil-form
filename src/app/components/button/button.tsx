@@ -1,8 +1,9 @@
+import { ButtonHTMLAttributes } from "react";
 import cn from "classnames";
 
 import "./button.css";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
 }
 

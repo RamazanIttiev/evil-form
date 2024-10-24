@@ -5,7 +5,7 @@ import "./input.css";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  error?: string;
+  error?: string | null;
 }
 
 const baseClass = "evil-input";
@@ -20,12 +20,12 @@ export const Input = (props: InputProps) => {
       <input
         {...props}
         placeholder={props.label}
-        type="text"
         className={`${baseClass}__inner`}
       />
       <label htmlFor={props.name} className={`${baseClass}__label`}>
         {props.label}
       </label>
+      {error && <span className={`${baseClass}__error`}>{error}</span>}
     </div>
   );
 };
