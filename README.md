@@ -9,3 +9,10 @@ The task is based on the requirements of a job application for Evil Martians, wh
 	•	TypeScript: For type safety and ensuring scalability.
     •	PostCSS: For styling the components.
 
+
+### You can find deployed version of the project [here](https://evil-form-eight.vercel.app/).
+
+
+### My credentials:
+
+[LinkedIn](https://www.linkedin.com/in/ramazan-ittiev/?locale=en_US)
