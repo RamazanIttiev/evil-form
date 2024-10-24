@@ -19,9 +19,9 @@
     }
 
     &:placeholder-shown ~ .evil-input__label {
-      font-size: 1rem;
+      font-size: 0.7rem;
       cursor: text;
-      top: 20px;
+      top: 35px;
     }
 
     &:focus {
@@ -32,6 +32,7 @@
         transition: 0.2s;
         color: #feb572;
         font-weight: 700;
+        font-size: 0.7rem;
       }
       font-weight: 700;
       border-width: 2px;
@@ -44,7 +45,7 @@
     top: 0;
     display: block;
     transition: 0.2s;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #fff;
   }
 

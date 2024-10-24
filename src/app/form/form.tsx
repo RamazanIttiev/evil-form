@@ -14,6 +14,11 @@ export const EvilForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [touched, setTouched] = useState({
+    email: false,
+    password: false,
+  });
+
   const [formErrors, setFormErrors] = useState<FormErrors>({
     emailError: "",
     passwordError: "",
@@ -62,10 +67,12 @@ export const EvilForm = () => {
       const response = await mockFetch(email, password);
       setLoginResult(response.status);
       setLoading(false);
-      setEmail("");
-      setPassword("");
+
+      if (response.status === "Success") {
+        setEmail("");
+        setPassword("");
+      }
     } catch (err: any) {
-      console.log(err);
       setLoginResult("Failure");
       setLoading(false);
     }
@@ -73,43 +80,58 @@ export const EvilForm = () => {
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-    setFormErrors((prevState) => ({
-      ...prevState,
-      emailError: "",
-    }));
+    if (touched.email) {
+      setFormErrors((prevState) => ({
+        ...prevState,
+        emailError: !emailValidation.test(event.target.value)
+          ? "Please enter a valid email address"
+          : null,
+      }));
+    }
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
-    setFormErrors((prevState) => ({
-      ...prevState,
-      passwordError: "",
-    }));
+    if (touched.password) {
+      setFormErrors((prevState) => ({
+        ...prevState,
+        passwordError:
+          event.target.value.length < 6
+            ? "Password must be at least 6 characters long"
+            : null,
+      }));
+    }
+  };
+
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    setTouched({ ...touched, [event.target.name]: true });
   };
 
   return (
     <form className="evil-form">
       <div className="evil-form__fields">
         <Input
-          name={"Name"}
-          id={"Name"}
-          label={"Name"}
+          name={"email"}
+          id={"email"}
+          label={"Email"}
           type={"email"}
           error={formErrors.emailError}
           value={email}
           onChange={handleEmailChange}
+          onBlur={handleBlur}
         />
         <Input
-          name={"Password"}
-          id={"Password"}
+          name={"password"}
+          id={"password"}
           label={"Password"}
           type={"password"}
           error={formErrors.passwordError}
           value={password}
           onChange={handlePasswordChange}
+          onBlur={handleBlur}
         />
       </div>
-      <Button onClick={handleSubmit} isLoading={loading} />
+      <Button content={"Submit"} onClick={handleSubmit} isLoading={loading} />
       {loginResult === "Success" && (
         <Confetti
           className={"evil-form__confetti"}
