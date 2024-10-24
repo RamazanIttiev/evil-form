@@ -18,15 +18,6 @@
   font-family: "Martian Mono";
   src:
     local("Martian Grotesk"),
-    url("../src/assets/fonts/MartianMono-StdTh.otf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Martian Mono";
-  src:
-    local("Martian Grotesk"),
     url("../src/assets/fonts/MartianMono-StdRg.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
