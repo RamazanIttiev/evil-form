@@ -1,9 +1,11 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Input } from "../components/input/input.tsx";
 import { Button } from "../components/button/button.tsx";
 import { FormErrors, FormResult } from "./form.model.ts";
 import { emailValidation, mockFetch } from "../../utils/fetch.ts";
 import Confetti from "react-confetti";
+
+import sound from "../../assets/space-sound.mp3";
 
 import "./form.css";
 
@@ -18,6 +20,12 @@ export const EvilForm = () => {
   });
 
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (loginResult === "Success") {
+      new Audio(sound).play();
+    }
+  }, [loginResult]);
 
   const validateForm = (): boolean => {
     let isValid = true;
@@ -78,7 +86,7 @@ export const EvilForm = () => {
       passwordError: "",
     }));
   };
-  console.log(document.body.offsetWidth);
+
   return (
     <form className="evil-form">
       <div className="evil-form__fields">
