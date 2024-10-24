@@ -1,7 +1,7 @@
 {
   "homepage": "https://ramazanittiev.github.io/evil-form/",
   "name": "evil-form",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
