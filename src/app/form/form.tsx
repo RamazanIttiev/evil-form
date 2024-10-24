@@ -72,7 +72,7 @@ export const EvilForm = () => {
         setEmail("");
         setPassword("");
       }
-    } catch (err: any) {
+    } catch {
       setLoginResult("Failure");
       setLoading(false);
     }
