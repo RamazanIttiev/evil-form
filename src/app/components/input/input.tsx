@@ -4,6 +4,7 @@ import cn from "classnames";
 import "./input.css";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
   error?: string;
 }
 
@@ -15,11 +16,16 @@ export const Input = (props: InputProps) => {
   const fullClassName = cn(baseClass, error && `${baseClass}_error`);
 
   return (
-    <input
-      {...props}
-      className={fullClassName}
-      aria-invalid={error ? true : undefined}
-      type={"text"}
-    />
+    <div className={fullClassName}>
+      <input
+        {...props}
+        placeholder={props.label}
+        type="text"
+        className={`${baseClass}__inner`}
+      />
+      <label htmlFor={props.name} className={`${baseClass}__label`}>
+        {props.label}
+      </label>
+    </div>
   );
 };

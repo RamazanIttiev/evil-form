@@ -7,8 +7,8 @@ export const EvilForm = () => {
   return (
     <form className="evil-form">
       <div className="evil-form__fields">
-        <Input placeholder={"Your e-mail"} />
-        <Input placeholder={"And your password"} />
+        <Input name={"Name"} id={"Name"} label={"Name"} />
+        <Input name={"Password"} id={"Password"} label={"Password"} />
       </div>
       <Button />
     </form>
