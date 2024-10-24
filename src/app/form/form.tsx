@@ -6,8 +6,10 @@ import "./form.css";
 export const EvilForm = () => {
   return (
     <form className="evil-form">
-      <Input placeholder={"Your e-mail"} />
-      <Input placeholder={"And your password"} />
+      <div className="evil-form__fields">
+        <Input placeholder={"Your e-mail"} />
+        <Input placeholder={"And your password"} />
+      </div>
       <Button />
     </form>
   );

@@ -9,6 +9,11 @@
   background: url("../assets/Hero.jpeg") no-repeat center / cover;
 
   &__inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
     width: 30rem;
     height: 30rem;
     background: rgb(0 0 0 / 10%);
